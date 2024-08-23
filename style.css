@@ -1,0 +1,57 @@
+body{
+    box-sizing: border-box;
+    background-color: rgb(116, 240, 172);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.container{
+    height: 250px;
+    width: 169px;    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.output{
+    height: 75px;
+    width: 164px;
+    font-size: medium;
+    background-color: rgba(160, 241, 255, 0.897);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
+    border: 2px solid rgb(49, 49, 49);
+    
+}
+
+
+
+button{
+    font-size: 15px;
+    height: 40px;
+    width: 42px;
+    background-color: rgb(21, 20, 39);
+    color: white;
+    
+
+}
+
+#extend{
+    width: 84px;
+}
+
+.first-operand, .second-operand {
+    margin-right: 5px;
+    
+}
+
+ 
+
+
+
+
