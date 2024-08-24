@@ -1,6 +1,7 @@
 body{
     box-sizing: border-box;
-    background-color: rgb(116, 240, 172);
+    background-color: rgb(223, 255, 239);
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +19,7 @@ body{
     height: 75px;
     width: 164px;
     font-size: medium;
-    background-color: rgba(160, 241, 255, 0.897);
+    background-color: rgba(153, 255, 216, 0.897);
     display: flex;
     flex-direction: column;
     align-items: flex-end;

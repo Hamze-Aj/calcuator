@@ -7,12 +7,15 @@ const divide = document.querySelector('.divide')
 const add = document.querySelector('.add')
 const multiply = document.querySelector('.multiply')
 const minus = document.querySelector('.minus')
+const dot = document.getElementById('dot')
 const equal = document.querySelector('.equal')
+const dec = '.'
 
 let operator = ''
 let operand = ''
-let num1
-let num2
+let result
+let num1 = 0
+let num2 = 0
 
 del.addEventListener('click', () => {
 operand = operand.slice(0, -1)
@@ -26,23 +29,35 @@ clear.addEventListener('click', () => {
         secondOperand.textContent = ''
         operand = ''
         operator= ''
+        num1 = 0
+        num1 = 0
     })
 
 num.forEach(btn => btn.addEventListener('click', () => {
     if(!operator) {
-
-        operand += btn.textContent
-        secondOperand.textContent = operand
-        num1 = parseInt(operand)
+    
+        dot.disabled = false;
+            operand += btn.textContent
+            secondOperand.textContent = operand
+            if(operand.includes(dec) ) {
+                dot.disabled = true;
+            }
+            num1 = parseFloat(operand)
 
     } else {
-
+        dot.disabled = false;
+            
             operand += btn.textContent  
-            firstOperand.textContent = operand
-            num2 = parseInt(operand)
+            secondOperand.textContent = operand
+            if(operand.includes(dec)) {
+                dot.disabled = true;
+            }
+            num2 = parseFloat(operand)
+               
     }       
-        }))
- 
+ }))
+
+    
 
 divide.addEventListener('click', () => {
     if(operand){
@@ -68,6 +83,7 @@ multiply.addEventListener('click', () => {
     if(operand){
         firstOperand.textContent = `${operand} *`
         secondOperand.textContent = ''
+        
         operator = '*'
         operand = '';        
         
@@ -85,28 +101,48 @@ minus.addEventListener('click', () => {
 })
 
 equal.addEventListener('click', () => {
-    if(operator == '/') {
-        const result = div(num1,num2)
-        
-        firstOperand.textContent = ''
-        secondOperand.textContent = result
-    }
-    else if(operator == '+') {
-        const result = plus(num1,num2)
-        firstOperand.textContent = ''
-        secondOperand.textContent = result
-    }
-    else if(operator == '*') {
-        const result = mult(num1,num2)
-        firstOperand.textContent = ''
-        secondOperand.textContent = result
-    }
-    else if(operator == '-') {
-        const result = subs(num1,num2)
-        firstOperand.textContent = ''
-        secondOperand.textContent = result
-    }
+    secondOperand.textContent = ''
 
+   
+        if(operator == '/') {
+             result = div(num1,num2)
+            firstOperand.textContent = ''
+            secondOperand.textContent = result
+            operand = result
+            num1 = result
+            
+        }
+        else if(operator == '+') {
+            const result = plus(num1,num2)
+            firstOperand.textContent = ''
+            secondOperand.textContent = result
+            operand = result
+            num1 = result
+
+
+        }
+        else if(operator == '*') {
+            
+            const result = mult(num1,num2)
+            firstOperand.textContent = ''
+            secondOperand.textContent = result
+            operand = result
+            num1 = result
+
+
+            
+        }
+        else if(operator == '-') {
+            const result = subs(num1,num2)
+            firstOperand.textContent = ''
+            secondOperand.textContent = result
+            operand = result
+            num1 = result
+
+
+        }
+        
+        operator = ''
 })
 
 
@@ -123,7 +159,13 @@ function mult(num1,num2) {
 }
 
 function div(num1,num2) {
-    return num1 / num2   
+    if(num2 === 0) {
+        return 'ERROR'
+    }
+    else {
+
+        return num1 / num2   
+    }
 }
 
 
