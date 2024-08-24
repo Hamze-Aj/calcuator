@@ -8,7 +8,11 @@ body{
     justify-content: center;
    
 }
+h3{
+    font-family: 'Dancing Script';
+}
 .container{
+    margin-top: -15px;
     height: 250px;
     width: 169px;    
     display: flex;
